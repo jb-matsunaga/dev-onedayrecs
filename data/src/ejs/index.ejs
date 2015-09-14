@@ -1,0 +1,160 @@
+<% include template/_head %>
+<body id="fn-hesiveTop">
+    <% include template/_googleanalytics %>
+
+    <div class="parallax-container">
+        <div class="parallax-logo hidden-xs">
+            <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="tixeeboxロゴ">
+        </div>
+        <div class="parallax">
+            <img src="<?php bloginfo('template_directory'); ?>/img/bg700.png" alt="tixeeboxイメージ">
+        </div>
+    </div>
+    <% include template/_nav %>
+    <div class="wrapper" id="fn-showHere">
+
+        <section class="row container" id="blog">
+        <?php
+        $cat = 'blog';
+        $num = '4';//取得件数
+        global $post;
+
+        $term_id = get_category_by_slug($cat)->term_id;
+        $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
+        if ($myposts) {
+            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            foreach($myposts as $post):
+                setup_postdata($post);
+            echo '  <section class="col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href=' .get_the_permalink(). '>'
+                                    .get_the_post_thumbnail(). 
+                                '</a>
+                            </div>
+                            <h1 class="card-action heading-b heading-b--row3">
+                                <a href="<?php the_permalink() ?>">'.get_the_title().'</a>
+                            </h1>
+                        </div>
+                    </section>'
+                    ;
+            endforeach;
+        } else {
+            echo '<p>記事がありません。</p>';
+        }
+        ?>
+        </section>
+
+        <section class="row container" id="event">
+        <?php
+        $cat = 'event';
+        $num = '4';//取得件数
+        global $post;
+
+        $term_id = get_category_by_slug($cat)->term_id;
+        $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
+        if ($myposts) {
+            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            foreach($myposts as $post):
+                setup_postdata($post);
+            echo '  <section class="col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href=' .get_the_permalink(). '>'
+                                    .get_the_post_thumbnail(). 
+                                '</a>
+                            </div>
+                            <h1 class="card-action heading-b heading-b--row3">
+                                <a href="<?php the_permalink() ?>">'.get_the_title().'</a>
+                            </h1>
+                        </div>
+                    </section>'
+                    ;
+            endforeach;
+        } else {
+            echo '<p>記事がありません。</p>';
+        }
+        ?>
+        </section>
+    </div>
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="<?php bloginfo('template_directory'); ?>/img/bg.png" alt="tixeeboxイメージ">
+        </div>
+    </div>
+
+    <div class="wrapper">    
+        <section class="row container" id="releases">
+        <?php
+        $cat = 'releases';
+        $num = '20';//取得件数
+        global $post;
+
+        $term_id = get_category_by_slug($cat)->term_id;
+        $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
+        if ($myposts) {
+            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            foreach($myposts as $post):
+                setup_postdata($post);
+            echo '  <section class="col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href=' .get_permalink(). '>'
+                                    .get_the_post_thumbnail(). 
+                                '</a>
+                            </div>
+                            <h1 class="card-action heading-b">
+                                <a href="<?php the_permalink() ?>">'.get_the_title().'</a>
+                            </h1>
+                        </div>
+                    </section>'
+                    ;
+            endforeach;
+        } else {
+            echo '<p>記事がありません。</p>';
+        }
+        ?>
+        </section>
+
+        <section class="row container" id="videos">
+        <?php
+        $cat = 'videos';
+        $num = '4';//取得件数
+        global $post;
+
+        $term_id = get_category_by_slug($cat)->term_id;
+        $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
+        if ($myposts) {
+            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            foreach($myposts as $post):
+                setup_postdata($post);
+            echo '  <section class="col s12 m6 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href=' .get_the_permalink(). '>'
+                                    .get_the_post_thumbnail(). 
+                                '</a>
+                            </div>
+                            <h1 class="card-action heading-b">
+                                <a href="<?php the_permalink() ?>">'.get_the_title().'</a>
+                            </h1>
+                        </div>
+                    </section>'
+                    ;
+            endforeach;
+        } else {
+            echo '<p>記事がありません。</p>';
+        }
+        ?>
+        </section>
+
+        <section class="row container" id="contact">
+            <h1 class="heading-a">
+                CONTACT
+            </h1>
+        </section>
+        
+    </div>
+    <% include template/_footer %>
+    <% include template/_script %>
