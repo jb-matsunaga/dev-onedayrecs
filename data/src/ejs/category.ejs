@@ -1,0 +1,47 @@
+<% include template/_head %>
+<body id="fn-hesiveTop">
+<?php print_r($wp_query); ?>
+    <% include template/_googleanalytics %>
+
+    <div class="c-parallax" id="fn-parallax-1">
+        <div class="c-parallax-logo">
+            <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="onedayrecsロゴ">
+        </div>  
+        <div class="c-parallax-body">
+
+        </div> 
+    </div> 
+    <% include template/_nav %>
+    <div class="wrapper" id="fn-showHere">
+
+        <section class="row container" id="blog">
+        <?php if (have_posts()) : ?>
+          <?php while (have_posts()) : the_post(); ?>
+                <section class="col s12 m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href='<?php the_permalink() ?>'>
+                                <?php the_post_thumbnail(); ?>
+                            </a>
+                        </div>
+                        <h1 class="card-action heading-b heading-b--row3">
+                            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                        </h1>
+                    </div>
+                </section>
+            <?php endwhile ?>
+            <div class="navigation">
+                <?php next_posts_link(trim(__('&laquo; ← NEW', 'default'))) ?>
+                <?php previous_posts_link(trim(__('OLD → &raquo;', 'default'))) ?>
+            </div>
+            <?php else : ?>
+                記事はありません
+        <?php wp_reset_query();endif; ?>
+
+
+        </section>
+    </div>
+
+    
+    <% include template/_footer %>
+    <% include template/_script %>
