@@ -14,16 +14,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 <body id="fn-hesiveTop">
+<?php print_r($wp_query); ?>
     
 
-    <div class="parallax-container">
-        <div class="parallax-logo hidden-xs">
-            <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="tixeeboxロゴ">
-        </div>
-        <div class="parallax">
-            <img src="<?php bloginfo('template_directory'); ?>/img/bg700.png" alt="tixeeboxイメージ">
-        </div>
-    </div>
+    <div class="c-parallax" id="fn-parallax-1">
+        <div class="c-parallax-logo">
+            <img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="onedayrecsロゴ">
+        </div>  
+        <div class="c-parallax-body">
+
+        </div> 
+    </div> 
     <div class="header">
     <nav class="hidden-xs">
         <ul class="left hide-on-med-and-down">
@@ -78,7 +79,7 @@
         $term_id = get_category_by_slug($cat)->term_id;
         $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
         if ($myposts) {
-            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            echo '<h1 class="heading-a"><a href="' .get_category_link($term_id). '">' .get_the_category_by_ID($term_id). '</a></h1>';
             foreach($myposts as $post):
                 setup_postdata($post);
             echo '  <section class="col s12 m6 l3">
@@ -110,7 +111,7 @@
         $term_id = get_category_by_slug($cat)->term_id;
         $myposts = get_posts('numberposts=' .$num. '&category_name=' .$cat);
         if ($myposts) {
-            echo '<h1 class="heading-a">' .get_the_category_by_ID($term_id). '</h1>';
+            echo '<h1 class="heading-a"><a href="' .get_category_link($term_id). '">' .get_the_category_by_ID($term_id). '</a></h1>';
             foreach($myposts as $post):
                 setup_postdata($post);
             echo '  <section class="col s12 m6 l3">
@@ -134,11 +135,11 @@
         </section>
     </div>
 
-    <div class="parallax-container">
-        <div class="parallax">
-            <img src="<?php bloginfo('template_directory'); ?>/img/bg.png" alt="tixeeboxイメージ">
-        </div>
-    </div>
+    <div class="c-parallax c-parallax--second" id="fn-parallax-2">
+        <div class="c-parallax-body">
+
+        </div> 
+    </div> 
 
     <div class="wrapper">    
         <section class="row container" id="releases">

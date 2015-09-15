@@ -107,7 +107,7 @@ gulp.task('jslib', function() {
 gulp.task("jsplg", function() {
     gulp.src([SRC + "/js/plugins/**/*.js",'!'+ SRC + "/js/plugins/back/**/*.js"])
         .pipe(plumber())
-        .pipe(concat('all.js'))
+        .pipe(concat('plugins.js'))
         .pipe(gulp.dest(PUBLIC + "/js/"))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
@@ -118,8 +118,9 @@ gulp.task("jsplg", function() {
 
 //js Common
 gulp.task("jscom", function() {
-    gulp.src([SRC + "/js/common.js"])
+    gulp.src([SRC + "/js/*.js",'!'+ SRC + "/js/plugins/*.js"])
         .pipe(plumber())
+        .pipe(concat('common.js'))
         .pipe(gulp.dest(PUBLIC + "/js/"))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
@@ -139,7 +140,7 @@ gulp.task("server", function() {
 //watch
 gulp.task('default',['server'],function() {
     gulp.watch([SRC + '/js/plugins/**/*.js','!'+ SRC + '/js/plugins/back/**/*.js'],['jsplg']);
-    gulp.watch([SRC + '/js/common.js'],['jscom']);
+    gulp.watch([SRC + "/js/*.js",'!'+ SRC + "/js/plugins/*.js"],['jscom']);
     gulp.watch(SRC + '/sass/**/*.scss',['css','hologram']);
     gulp.watch(PUBLIC + '/css/common.css',['mincss']);
     //gulp.watch(SRC + '/sass/module/*.scss',['sass']);

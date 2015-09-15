@@ -1,21 +1,24 @@
-.parallax-container {
-    height: 500px;
-    padding: 15px;
-    max-width: 1440px;
+.c-parallax {
+    background:url(../img/bg700.png) 50% 0 no-repeat fixed;
+    height: 600px;
     margin: 0 auto;
+    padding: 0;
 
-    @media(max-width: $medium-screen) {
-        padding-top: 60px;
+    &-body {
+
     }
 
-    .parallax-logo {
-        background-color: rgba(255,255,255,.5);
+    &-logo {
         display: inline-block;
-        padding: 15px 15px 8px;
-        border-radius: 5px;
+        padding: 30px;
 
         img {
             width: 200px;
         }
+    }
+
+    &--second {
+        background:url(../img/bg-2.png) 50% 50% no-repeat fixed;
+        height: 500px;
     }
 }
