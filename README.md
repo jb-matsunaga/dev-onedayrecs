@@ -1,11 +1,11 @@
 
 #ONEDAY RECS RENEWAL
-
-# Wocker
+## WordPress 開発環境
+### Wocker
 
 This repository provides a template Vagrantfile to create a Docker-based rapid development environment of WordPress. __IT TAKES JUST 3 SECONDS TO CREATE A NEW ONE!__
 
-## Documentation
+#### Documentation
 
 [http://wckr.github.io/](http://wckr.github.io/)
 
